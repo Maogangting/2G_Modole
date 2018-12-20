@@ -1,0 +1,101 @@
+;#<FEEDBACK># ARM Linker, RVCT4.0 [Build 400]: Last Updated: Fri Dec 07 18:16:32 2018
+;VERSION 0.2
+;FILE MyCom.o
+;FILE cJSON.o
+cJSON_AddArrayToObject <= USED 0
+cJSON_AddBoolToObject <= USED 0
+cJSON_AddFalseToObject <= USED 0
+cJSON_AddItemReferenceToArray <= USED 0
+cJSON_AddItemReferenceToObject <= USED 0
+cJSON_AddItemToArray <= USED 0
+cJSON_AddItemToObjectCS <= USED 0
+cJSON_AddNullToObject <= USED 0
+cJSON_AddObjectToObject <= USED 0
+cJSON_AddRawToObject <= USED 0
+cJSON_AddTrueToObject <= USED 0
+cJSON_Compare <= USED 0
+cJSON_CreateArray <= USED 0
+cJSON_CreateArrayReference <= USED 0
+cJSON_CreateBool <= USED 0
+cJSON_CreateDoubleArray <= USED 0
+cJSON_CreateFalse <= USED 0
+cJSON_CreateFloatArray <= USED 0
+cJSON_CreateIntArray <= USED 0
+cJSON_CreateNull <= USED 0
+cJSON_CreateObjectReference <= USED 0
+cJSON_CreateRaw <= USED 0
+cJSON_CreateStringArray <= USED 0
+cJSON_CreateStringReference <= USED 0
+cJSON_CreateTrue <= USED 0
+cJSON_DeleteItemFromArray <= USED 0
+cJSON_DeleteItemFromObject <= USED 0
+cJSON_DeleteItemFromObjectCaseSensitive <= USED 0
+cJSON_DetachItemFromArray <= USED 0
+cJSON_DetachItemFromObject <= USED 0
+cJSON_DetachItemFromObjectCaseSensitive <= USED 0
+cJSON_DetachItemViaPointer <= USED 0
+cJSON_Duplicate <= USED 0
+cJSON_GetArrayItem <= USED 0
+cJSON_GetArraySize <= USED 0
+cJSON_GetErrorPtr <= USED 0
+cJSON_GetObjectItemCaseSensitive <= USED 0
+cJSON_GetStringValue <= USED 0
+cJSON_HasObjectItem <= USED 0
+cJSON_InitHooks <= USED 0
+cJSON_InsertItemInArray <= USED 0
+cJSON_IsArray <= USED 0
+cJSON_IsBool <= USED 0
+cJSON_IsFalse <= USED 0
+cJSON_IsInvalid <= USED 0
+cJSON_IsNull <= USED 0
+cJSON_IsNumber <= USED 0
+cJSON_IsObject <= USED 0
+cJSON_IsRaw <= USED 0
+cJSON_IsString <= USED 0
+cJSON_IsTrue <= USED 0
+cJSON_Minify <= USED 0
+cJSON_PrintBuffered <= USED 0
+cJSON_PrintPreallocated <= USED 0
+cJSON_PrintUnformatted <= USED 0
+cJSON_ReplaceItemInArray <= USED 0
+cJSON_ReplaceItemInObject <= USED 0
+cJSON_ReplaceItemInObjectCaseSensitive <= USED 0
+cJSON_ReplaceItemViaPointer <= USED 0
+cJSON_SetNumberHelper <= USED 0
+cJSON_Version <= USED 0
+cJSON_free <= USED 0
+cJSON_malloc <= USED 0
+;FILE main.o
+Callback_Null11 <= USED 0
+;FILE ril_alimqtt.o
+RIL_AL_MQTT_Disconn <= USED 0
+RIL_AL_MQTT_MsgPingRsp <= USED 0
+RIL_AL_MQTT_State <= USED 0
+RIL_AL_MQTT_UnSub <= USED 0
+;FILE ril_http.o
+RIL_HTTP_CLOSE <= USED 0
+RIL_HTTP_DownloadFile <= USED 0
+RIL_HTTP_INITIALIZE <= USED 0
+RIL_HTTP_ReadResponse <= USED 0
+RIL_HTTP_Request <= USED 0
+RIL_HTTP_SetServer_BREAK <= USED 0
+RIL_HTTP_SetServer_BREAKEND <= USED 0
+RIL_HTTP_SetServer_PORT <= USED 0
+RIL_HTTP_SetServer_PROXY <= USED 0
+RIL_HTTP_SetServer_REDIR <= USED 0
+RIL_HTTP_SetServer_TIMEOUT <= USED 0
+RIL_HTTP_SetServer_URL <= USED 0
+;FILE ril_sim.o
+RIL_SIM_GetGPRSSignal <= USED 0
+RIL_SIM_GetICCID <= USED 0
+RIL_SIM_GetIMSI <= USED 0
+RIL_SIM_GetSimState <= USED 0
+;FILE ril_telephony.o
+RIL_Telephony_Answer <= USED 0
+RIL_Telephony_Dial <= USED 0
+RIL_Telephony_Hangup <= USED 0
+;FILE ril_urc.o
+;FILE ril_util.o
+Ql_GenHash <= USED 0
+ol_HexStrToInt <= USED 0
+ol_StrToUpper <= USED 0

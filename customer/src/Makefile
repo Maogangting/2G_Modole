@@ -1,0 +1,46 @@
+##########################################################################
+# File:             Mailefile 
+# Version:          0.1 
+# Author:           Jiang
+# DATE              NAME                        DESCRIPTION
+# 2011-04-10        Jiang                      Initial Version 0.1
+##########################################################################
+# started
+include $(PROJ_HOME)/build/option.mak
+OBJDIR=./
+MODULE_NAME = $(PARAM)
+LIB_RESULE=$(MODULE_NAME).a
+
+#Two mothods#
+#First mothod#
+#S1 := $(wildcard *.c)
+#SOURCE:=$(S1)
+
+#Second mothod#
+SOURCE := app_main.c \
+          APP_regioninit.s \
+          ./../../RIL/src/ril_sim.c \
+          ./../../RIL/src/ril_network.c \
+          ./../../RIL/src/ril_telephony.c \
+          ./../../RIL/src/ril_ftp.c \
+          ./../../RIL/src/ril_urc.c	\
+          ./../../RIL/src/ril_location.c	\
+          ./../../RIL/src/ril_util.c	\
+          ./../../RIL/src/ril_dtmf.c	\
+          ./../../RIL/src/ril_audio.c	\
+          ./../../RIL/src/ril_http.c	\
+		  ./../../RIL/SRC/ril_gprs.c   \
+		  ./../../RIL/SRC/ril_mqtt.c	\
+      ./../../RIL/SRC/ril_alimqtt.c \
+		cJSON.c	  \
+    MyCom.c   \
+MAIN_OBJ := APP_regioninit.o  
+
+
+#ͷ�ļ�Ŀ¼����
+LOCAL_INCLUDE := -I./../inc  \
+                 -I./../../RIL/inc \
+
+#���룬����.a�ļ�
+include $(PROJ_HOME)/build/app_build.mak
+

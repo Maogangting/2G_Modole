@@ -1,0 +1,145 @@
+/********************************************************************
+ *                Copyright MBLTEK(shanghai)co. Ltd.                   *
+ *---------------------------------------------------------------------
+ * FileName      :   app_demo_main.c
+ * version       :   1.1
+ * Description   :   
+ * Authors       :   jiang
+ * Notes         :
+ *---------------------------------------------------------------------
+ *
+ *    HISTORY OF CHANGES
+ *---------------------------------------------------------------------
+ *0.10  2017-1-12, jiang, create originally.
+ *
+ *--------------------------------------------------------------------
+ * File Description
+ * AT+CEAT=parma1,param2
+ * sample of mutlie task 
+ *
+ *--------------------------------------------------------------------
+ ********************************************************************/
+/********************************************************************
+ * Include Files
+ ********************************************************************/
+#include <stdio.h>
+#include <string.h>
+#include "ol_type.h"
+#include "ol_interface.h"
+#include "ol_iostream.h"
+#include "ol_gps.h"
+#include "ol_soc.h"
+#include "ol_system.h"
+#include "ol_ril.h"
+#include "ol_timer.h"
+#include "ol_type.h"
+#include "ol_uart.h"
+#include "ol_gpio.h"
+#include "ol_wtd.h"
+#include "ol_adc.h"
+/********************************************************************
+ * Macros
+ ********************************************************************/
+
+/********************************************************************
+ * Types
+/********************************************************************
+ * Extern Variables (Extern /Global)
+ ********************************************************************/
+ 
+/********************************************************************
+ * Local Variables:  STATIC
+/********************************************************************
+ * External Functions declaration
+ ********************************************************************/
+//extern void APP_InitRegions(void);
+extern void OL_InitRegions(void);
+
+//extern void macro_RegionInit(void);
+/********************************************************************
+ * Local Function declaration
+ ********************************************************************/
+void app_main(void *data);
+void app_initial(void *data); //app inital 
+//void app_soc_task(void *data);
+//void app_ext2_main(void *data);
+//void app_ext2_initial(void *data);
+//void app_ext3_main(void *data);
+//void app_ext3_initial(void *data);
+//void app_ext4_main(void *data);
+//void app_ext4_initial(void *data);
+
+/********************************************************************
+ * Local Function
+ ********************************************************************/
+#pragma arm section rodata = "APP_CFG"
+APP_ENTRY_FLAG 
+#pragma arm section rodata
+
+#pragma arm section rodata="APPENTRY"
+	const EatEntry_st AppEntry = 
+	{
+		app_main,
+		app_initial,    //ext1_func donit remove it!!!
+		(app_user_func)OL_NULL,//soc_task, donit remove it!!!
+		(app_user_func)OL_NULL,//app_user2,
+		(app_user_func)OL_NULL,//app_user3,
+		(app_user_func)OL_NULL,//app_user4,
+		(app_user_func)OL_NULL,//app_user5, reserve
+		(app_user_func)OL_NULL,//app_user6, reserve
+		(app_user_func)OL_NULL,//app_user7, reserve
+		(app_user_func)OL_NULL,//app_user8, reserve
+		OL_NULL,
+		OL_NULL,
+		OL_NULL,
+		OL_NULL,
+		OL_NULL,
+		OL_NULL
+	};
+#pragma arm section rodata
+
+s32 callback_Null(char* line, s32 len, void* userdata)
+{
+	ol_print("just for test \r\n");
+}
+
+void callback_adc(void *customParam)
+{
+	u32 ret;
+	
+	ret = ol_ADC_Sampling(0,OL_FALSE);
+	if(ret)
+	{
+		ol_ADC_Sampling(0,OL_TRUE);
+	    ol_trace("----callback_adc---: %d\r\n",*((s32*)customParam));
+		ol_ADC_Init(0,6,1000);	
+	}
+	return;
+}
+////////////MAIN  TASK///////////////////
+
+void app_main(void *data)
+{
+	char buffer[50]={0};
+	s32 state,rssi,ber,volt;
+	ol_print("app_main \r\n");	
+
+	ol_S leep(20000);
+	
+	ol_RIL_SendATCmd("ATE0" , strlen("ATE0") , callback_Null , NULL, 1000);
+
+	ol_ADC_Register(0,callback_adc, &volt);
+
+	ol_ADC_Init(0,6,1000);
+  
+}
+#pragma arm section rodata = "INIT_APP"
+void app_initial(void *data)
+{	
+    //don't remove it!!////
+	  OL_InitRegions();  //it very importent!!!
+    //////////////////////
+}
+#pragma arm section rodata
+////////////END MAIN  TASK///////////////////
+
